@@ -1,6 +1,10 @@
 Linha 1
 Linha 2
 Linha 3
+
+// TETOEKOTKEOKTOEKOTE
+
+//TPEPLTPELPTLEPTLPELTPEL
 Linha 4
 Linha 5
 Teste de leitura de linha. Vontade de ir embora. Mas estou muito cansado pra isso.
