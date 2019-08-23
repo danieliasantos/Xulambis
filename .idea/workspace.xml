@@ -20,10 +20,21 @@
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="1" />
+        </counts>
+      </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
       <file leaf-file-name="LeArquivo.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LeArquivo.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -32,6 +43,11 @@
               <folding />
             </state>
           </provider>
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LeArquivo.py">
+          <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> master
         </entry>
       </file>
     </leaf>
@@ -63,12 +79,25 @@
     <panes>
       <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Xulambis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Xulambis" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
+>>>>>>> master
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -125,6 +154,7 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+<<<<<<< HEAD
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
@@ -137,6 +167,11 @@
           <folding />
         </state>
       </provider>
+=======
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/LeArquivo.py">
+      <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> master
     </entry>
   </component>
 </project>
