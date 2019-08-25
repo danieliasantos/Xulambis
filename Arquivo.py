@@ -22,11 +22,11 @@ class Arquivo(object):
             if linha.__str__().startswith("\n"):
                 self.__lista.remove( linha )
             elif "//" in linha:
-                s = linha.__str__().rstrip(linha[int([m.start() for m in re.finditer("//", linha)][0])::])
+                s = linha.__str__().rstrip(linha[int([b.start() for b in re.finditer("//", linha)][0])::])
                 self.__lista.insert( self.__lista.index( linha ), s )
                 self.__lista.remove( linha )
 
-    def cleanLista(self):
+    def cleanList(self):
         #funcao que remove linhas vazias
         for linha in self.__lista:
             e = 0
@@ -37,9 +37,18 @@ class Arquivo(object):
             if not e:
                 self.__lista.remove(linha)
 
+    def removeSpaces(self):
+        #funcao que remove espacos duplicados
+        for linha in self.__lista:
+            s = linha.__str__().rstrip()
+            s = s.lstrip()
+            self.__lista.insert( self.__lista.index( linha ), s )
+            self.__lista.remove( linha )
+
     def treatCode(self):
         self.checkLine()
-        self.cleanLista()
+        self.cleanList()
+        self.removeSpaces()
 
     def printCode(self):
         # função que enumera as linhas validas e as imprime na tela
