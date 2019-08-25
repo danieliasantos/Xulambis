@@ -1,0 +1,16 @@
+{
+     //Este é o nosso programa exemplo. Viva $%^*&%!!!!
+     int i; int j; float x; bool y;
+     j = 10; i = 20;
+     i = i + j;
+     //Comentario 1
+     x = 13.8; //comentário
+
+     y = true; 
+     while ( y ) {
+
+           i = i + j;
+           if ( i < j ) break;
+
+     }
+}
