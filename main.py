@@ -1,11 +1,16 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 from Arquivo import Arquivo
+from LimpaCodigo import LimpaCodigo
+
+lista = []
 
 arquivo = Arquivo("teste.xul")
 
-arquivo.loadFile()
+arquivo.loadToList(lista)
 
-arquivo.treatCode()
+listaCodigo = LimpaCodigo(lista)
 
-arquivo.printCode()
+listaCodigo.treatCode()
+
+listaCodigo.printCode()
