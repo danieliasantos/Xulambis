@@ -1,6 +1,16 @@
-Linha 1
-Linha 2
-Linha 3
-Linha 4
-Linha 5
-Teste de leitura de linha. Vontade de ir embora. Mas estou muito cansado pra isso.
+{
+    //Este é o nosso programa e: cxemplo. Viva $%^*&%!!!!
+     int i; int j; float x; bool y;
+     j = 10; i = 20;
+     i = i + j;
+
+     x = 13.8;
+
+     y = true; 
+     while ( y ) {
+
+           i = i + j;
+           if ( i < j ) break;
+
+     }
+}

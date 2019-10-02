@@ -1,5 +1,12 @@
-class Arquivo(object):
+import TabelaSimbolos
 
-    with open("teste.txt", "r") as file:
-        for line in file:
-            print(line)
+class Arquivo(object):
+    
+  
+        with open("teste.txt", "r") as file:
+            for line in file:
+                print(line)
+
+    
+
+    
