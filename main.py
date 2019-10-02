@@ -1,7 +1,4 @@
-
-class TabelaSimbolos():
-    _hash = []
-    _value = False
+import TabelaSimbolos
 
 class main():
     
@@ -43,7 +40,7 @@ class main():
 
 main = main()
 main.open_txt()
-print('ISAAC')
+
 
 
 

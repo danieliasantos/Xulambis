@@ -1,6 +1,4 @@
-class TabelaSimbolos(object):
-    
 
-
-    def verify_lex(self):
-        print('teste_lex')
+class TabelaSimbolos():
+    _hash = []
+    _value = False
