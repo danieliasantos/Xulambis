@@ -1,4 +1,4 @@
-import TabelaSimbolos
+from TabelaSimbolos import TabelaSimbolos
 
 class main():
     
@@ -17,7 +17,7 @@ class main():
 
         #salvando os tokens na hash
         for x in line_array:
-
+            
             if self._words.__contains__(x):
                 print(x,' - true')
                 self.tabela._hash.append(x)
