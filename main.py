@@ -5,7 +5,7 @@ from LimpaCodigo import LimpaCodigo
 
 lista = []
 
-arquivo = Arquivo("teste.xul")
+arquivo = Arquivo("teste.txt")
 
 arquivo.loadToList(lista)
 

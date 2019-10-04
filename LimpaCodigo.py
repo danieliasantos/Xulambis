@@ -13,8 +13,9 @@ class LimpaCodigo(object):
         for linha in self.__lista:
             if linha.__str__().startswith("\n"):
                 self.__lista.remove(linha)
-            elif "//" in linha:
+            elif linha.__str__().__contains__("//"):
                 s = linha.__str__().rstrip(linha[int([b.start() for b in re.finditer("//", linha)][0])::])
+                #s = linha.__str__().split("//")[0]
                 self.__lista.insert(self.__lista.index(linha), s)
                 self.__lista.remove(linha)
 
