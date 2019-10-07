@@ -6,20 +6,20 @@ class LimpaCodigo(object):
 
     def __init__(self, lista):
         if len(lista) > 0:
-            self.checkLine(lista)
+            self.__listaCodigo = lista
 
-    def checkLine(self, lista):
-        # função de checagem da linha do arquivo, que imprime as linhas de código válidas (removendo comentários, quebras de linha e espaços vazios)
-        for linha in lista:
-            if linha.__str__().__contains__("//"):
-                s = linha.__str__().rstrip(linha[int([b.start() for b in re.finditer("//", linha)][0])::]) #remocao de comentarios
-                s = linha.__str__().rstrip() #remocao de espacos vazios a direita
-                s = s.lstrip() #remocao de espacos vazios a esquerda
-                if s is not "":
-                    self.__listaCodigo.append(s)
-        return self.__listaCodigo
-
-    def printCode(self):
-        # função que enumera as linhas validas e as imprime na tela
-        for idx, line in enumerate(self.__listaCodigo):
-            print( '%.2d %s' % (idx, line))
+    # função de checagem da linha do arquivo, que imprime as linhas de código válidas (removendo comentários, quebras de linha e espaços vazios)
+    def treatList(self, newList):
+        for i in self.__listaCodigo:
+            linha = i
+            if linha.__str__().__contains__("//"): #verifica se a linha contem comentarios
+                linha = linha.__str__().rstrip(linha[int([b.start() for b in re.finditer("//", linha)][0])::])  # remocao de comentarios
+            linha = linha.__str__().rstrip('\n') #remocao de quebra de linha a direita
+            linha = linha.__str__().rstrip('\t') #remocao de caractere de tabulacao a direita
+            linha = linha.__str__().rstrip('\r') #remocao de carriage return a direita
+            linha = linha.__str__().rstrip('\f') #remocao de final de pagina a direita
+            linha = linha.__str__().rstrip() #remocao de espacos vazios a direita
+            linha = linha.__str__().lstrip()  #remocao de espacos vazios a esquerda
+            if linha is not "": #despreza linha vazia
+                newList.append(linha) #carrega linha na nova lista
+        self.__listaCodigo = None

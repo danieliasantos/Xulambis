@@ -1,4 +1,4 @@
-class TabelaSimbolos():
+class TabelaSimbolos(object):
     _hash = []
 
     # palavras reservadas
@@ -18,12 +18,6 @@ class TabelaSimbolos():
             else:
                 print(x, ' - false')
                 pass
-
-    # abrindo o arquivo xulambis
-    def open_txt(self):
-        with open("teste.txt", "r") as file:
-            for line in file:
-                self.verify_lex(line)
 
     # visualização dos itens inseridos na hash
     def show_tabela(self):
