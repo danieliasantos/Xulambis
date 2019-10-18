@@ -20,6 +20,7 @@ class LimpaCodigo(object):
             linha = linha.__str__().rstrip('\f') #remocao de final de pagina a direita
             linha = linha.__str__().rstrip() #remocao de espacos vazios a direita
             linha = linha.__str__().lstrip()  #remocao de espacos vazios a esquerda
+            linha = re.sub("\s+", " ", linha) #remocao de espacos duplicados
             if linha is not "": #despreza linha vazia
                 newList.append(linha) #carrega linha na nova lista
         self.__listaCodigo = None

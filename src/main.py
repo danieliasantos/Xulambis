@@ -1,9 +1,9 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
-from Arquivo import Arquivo
-from LimpaCodigo import LimpaCodigo
+from src.Arquivo import Arquivo
+from src.LimpaCodigo import LimpaCodigo
 
-arquivo = Arquivo("teste.xul") #cria objeto da classe Arquivo com o arquivo de teste desejado
+arquivo = Arquivo("tests/teste.xul") #cria objeto da classe Arquivo com o arquivo de teste desejado
 listaArquivo = [] #lista que vai receber o conteudo do arquivo
 arquivo.loadToList(listaArquivo) #carrega conteudo do arquivo para lista
 trataLista = LimpaCodigo(listaArquivo) #cria objeto da classe LimpaCodigo com a lista a ser tratada
