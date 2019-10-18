@@ -1,54 +1,34 @@
+from src.Token import Token
+
 class TabelaSimbolos(object):
     __hashSymbols = {
-        "{": "{",
-        "}": "}",
-        "(": "(",
-        ")": ")",
-        "[": "[",
-        "]": "]",
-        "id": str,
-        ";": ";",
-        "keyword": "keyword",
-        "int": "int",
-        "float": "float",
-        "bool": "bool",
-        "str": "str",
-        "double": "double",
-        "true": "true",
-        "false": "false",
-        "if": "if",
-        "while": "while",
-        "break": "break",
-        "=": "=",
-        "+": "+",
-        "<": "<",
-        ">": ">",
-        ">=": ">=",
-        "<=": "<=",
-        "!=": "!=",
-        "==": "=="
+        "int": Token("int", "int"),
+        "float": Token("float", "float"),
+        "bool": Token("bool", "bool"),
+        "double": Token("double", "double"),
+        "true",
+        "false",
+        "if",
+        "while",
+        "break",
+        "{",
+        "}",
+        "(",
+        ")",
+        "[",
+        "]",
+        ";",
+        "=",
+        "+",
+        "<",
+        ">",
+        ">=",
+        "<=",
+        "!=": Token(),
+        "==": Token("==", "==")
     }
+    def lexExists (self, lexema):
+        return lexema in self.__hashSymbols
 
-    # palavras reservadas
-    _words = []
-
-    def verify_lex(self, line):
-
-        # desmembramento dos tokens
-        line_array = line.split() #isso deve ficar na classe de analise lexica
-
-        # salvando os tokens na hash
-        for x in line_array:
-
-            if self._words.__contains__(x):
-                print(x, ' - true')
-                self.tabela._hash.append(x)
-            else:
-                print(x, ' - false')
-                pass
-
-    # visualização dos itens inseridos na hash
-    def show_tabela(self):
-        print(self.tabela._hash)
-
-    # tabela.show_tabela()
+    def getToken(self, lexema):
+        return self.__hashSymbols[lexema]

@@ -2,6 +2,7 @@
 #-*- coding: utf-8 -*-
 from src.Arquivo import Arquivo
 from src.LimpaCodigo import LimpaCodigo
+from src.TabelaSimbolos import TabelaSimbolos
 
 arquivo = Arquivo("tests/teste.xul") #cria objeto da classe Arquivo com o arquivo de teste desejado
 listaArquivo = [] #lista que vai receber o conteudo do arquivo
@@ -12,3 +13,7 @@ trataLista.treatList(listaCodigo) #trata a lista antiga e carrega para uma nova 
 
 for idx, line in enumerate(listaCodigo):
     print('%.2d %s' % (idx, line))
+
+lexema = TabelaSimbolos()
+
+print (lexema.lexExists("}"))
