@@ -5,9 +5,11 @@ import platform
 if platform.sys.platform.__contains__("win"):
     from Arquivo import Arquivo
     from LimpaCodigo import LimpaCodigo
+    from TabelaSimbolos import TabelaSimbolos
 else:
     from src.Arquivo import Arquivo
     from src.LimpaCodigo import LimpaCodigo
+    from src.TabelaSimbolos import TabelaSimbolos
 
 
 
