@@ -1,3 +1,5 @@
+#!/usr/bin/python
+#-*- coding: utf-8 -*-
 class Arquivo(object):
     # Classe de leitura de arquivo de codigo, e criacao de uma lista de strings com o conteudo do arquivo
 
