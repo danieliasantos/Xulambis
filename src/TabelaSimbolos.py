@@ -1,13 +1,19 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
-from src.Token import Token
+
+import platform
+
+if platform.sys.platform.__contains__("win"):
+    from Token import Token
+else:
+    from src.Token import Token
 
 class TabelaSimbolos(object):
     __hashSymbols = {
-        "int": Token("int", "int"),
-        "float": Token("float", "float"),
-        "bool": Token("bool", "bool"),
-        "double": Token("double", "double"),
+        "int",
+        "float",
+        "bool",
+        "double",
         "true",
         "false",
         "if",
@@ -26,8 +32,8 @@ class TabelaSimbolos(object):
         ">",
         ">=",
         "<=",
-        "!=": Token(),
-        "==": Token("==", "==")
+        "!=",
+        "==",
     }
     def lexExists (self, lexema):
         return lexema in self.__hashSymbols

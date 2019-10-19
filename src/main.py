@@ -2,7 +2,15 @@
 #-*- coding: utf-8 -*-
 import platform
 
+system = None
+
 if platform.sys.platform.__contains__("win"):
+    _system = True
+else:
+    _system = False
+
+       
+if _system is True:
     from Arquivo import Arquivo
     from LimpaCodigo import LimpaCodigo
     from TabelaSimbolos import TabelaSimbolos
