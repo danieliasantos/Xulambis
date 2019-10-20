@@ -1,0 +1,12 @@
+{
+    int i; int j; 
+    j = 10; i = 20;
+    i = i + j;
+  
+   if ( i > j ) {
+        i = i + j;
+        if ( i < 10 ){
+            break;
+        }
+    }
+}

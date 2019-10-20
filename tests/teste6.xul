@@ -1,0 +1,12 @@
+{
+
+    // Teste 6
+    while (true){
+       if(false){
+           int x = 10;
+       }else {
+           break;
+       }
+    }
+   
+}

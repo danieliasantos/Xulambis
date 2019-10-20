@@ -1,0 +1,16 @@
+{
+    float x;
+    bool y;
+    int i;
+   
+    x = 20.7;
+    y = False;
+    while ( y == False ) {
+      if (x > 1.6){
+          y = True;
+      }
+        if ( y = True ){
+            i = 40 - x;
+        }
+    }
+}

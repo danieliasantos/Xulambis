@@ -1,0 +1,15 @@
+{
+    int x = 4;
+    int w;
+    w = x-3;
+    bool c = True;
+
+    if (x < w){
+
+        while (c){
+            x = 0;
+            break;
+        }
+
+    }
+}
