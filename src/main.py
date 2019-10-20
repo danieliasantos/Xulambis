@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 import platform
 
-system = None
+_system = None
 
 if platform.sys.platform.__contains__("win"):
     _system = True
