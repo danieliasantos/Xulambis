@@ -1,6 +1,8 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
+import platform
+
 if platform.sys.platform.__contains__("win"):
     from Token import Token
 else:
@@ -9,39 +11,42 @@ else:
 class TabelaSimbolos(object):
 
     __hashTokens = {
-        "int": Token('int', 'keyword'),
-        "float": Token('float', 'keyword'),
-        "bool": Token('bool', 'keyword'),
-        "double": Token('double', 'keyword'),
-        "string": Token('string', 'keyword'),
-        "true": Token('double', 'keyword'),
-        "false": Token('false', 'keyword'),
-        "if": Token('if', 'keyword'),
-        "else": Token('else', 'keyword'),
-        "while": Token('while', 'keyword'),
-        "break": Token('break', 'keyword'),
-        "{": Token('{', 'delimiter'),
-        "}": Token('{', 'delimiter'),
-        "(": Token('{', 'delimiter'),
-        ")": Token('{', 'delimiter'),
-        "[": Token('{', 'delimiter'),
-        "]": Token('{', 'delimiter'),
-        ";": Token('{', 'delimiter'),
-        "=": Token('=', 'operation'),
-        "+": Token('+', 'operation'),
-        "-": Token('-', 'operation'),
-        "*": Token('*', 'operation'),
-        "/": Token('/', 'operation'),
-        "<": Token('<', 'logical'),
-        ">": Token('>', 'logical'),
-        ">=": Token('>=', 'logical'),
-        "<=": Token('<=', 'logical'),
-        "!=": Token('!=', 'logical'),
-        "==": Token('==', 'logical')
+        "int": Token('int', 'int'),
+        "float": Token('float', 'float'),
+        "bool": Token('bool', 'bool'),
+        "double": Token('double', 'double'),
+        "string": Token('string', 'string'),
+        "true": Token('true', 'true'),
+        "false": Token('false', 'false'),
+        "if": Token('if', 'if'),
+        "else": Token('else', 'else'),
+        "while": Token('while', 'while'),
+        "break": Token('break', 'break'),
+        "{": Token('{', '{'),
+        "}": Token('}', '}'),
+        "(": Token('(', '('),
+        ")": Token(')', ')'),
+        "[": Token('[', '['),
+        "]": Token(']', ']'),
+        ";": Token(';', ';'),
+        "=": Token('=', '='),
+        "+": Token('+', '+'),
+        "-": Token('-', '-'),
+        "*": Token('*', '*'),
+        "/": Token('/', '/'),
+        "<": Token('<', '<'),
+        ">": Token('>', '>'),
+        ">=": Token('>=', '>='),
+        "<=": Token('<=', '<='),
+        "!=": Token('!=', '!='),
+        "==": Token('==', '=='),
+        "&&": Token('&&', "&&"),
+        "||": Token('||', '||'),
+        "!": Token('!', '!')
     }
 
-    def lexExists (self, lexema):
-        return lexema in self.__hashSymbols
+    def isToken (self, lexema):
+        return lexema in self.__hashTokens
 
-    def getToken(self, lexema):
+    def getSimbolo(self, lexema):
         return self.__hashTokens[lexema]

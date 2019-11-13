@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import re
 import platform
+import sys
 
 if platform.sys.platform.__contains__("win"):
     from TabelaSimbolos import TabelaSimbolos
@@ -10,36 +11,69 @@ else:
     from src.TabelaSimbolos import TabelaSimbolos
     from src.Token import Token
 
-class AnaliseLexica(object):
 
-    __listTokens = []
+class AnaliseLexica(object):
     __listaCodigo = []
 
     def __init__(self, lista):
-        __regex = re.compile('[{]|'
-                             '([a-zA-Z]+[\s]+(([a-zA-Z]+[\s]*[\;])|(([a-zA-Z]+[\s]+)*[\=]+[\s]+(([0-9]+([\.][0-9]+)*[\;]*)|'
-                             '([a-zA-Z]+[\s]*[\;])|(([a-zA-Z]+|[0-9]+([\.][0-9]+)*)[\s]*([\+]|[\-]|[\*]|[\/])[\s]*([a-zA-Z]+|[0-9]+([\.][0-9]+)*)[\;]*)))))|'
-                             '([a-zA-Z]+[\s]+[\(]+[\s](([a-zA-Z]+[\s][\)])|([a-zA-Z]+[\s]([<]|[>]|[>=]|[<=]|[!=]|[==])[\s]([a-zA-Z]+|[0-9]+)[\s][\)]))[\s]([\{]|[a-zA-Z]+[\;]*))|'
-                             '([a-zA-Z]+[\;]*)|'
-                             '[\}]')
+        self.__lexemas = re.compile('[\w]|[\{]|[\}]|[\(]|[\)]|[\[]|[\]]|[\;]|[\=]|[\+]|[\-]|[\*]|[\/]|[\<]|[\>]|[\!]|[\&]|[\|]|[\.]|[\s]')
         if len(lista) > 0:
             self.__listaCodigo = lista
 
-    def regexTest(self, linha):
-        self.__regex.match(linha)
+    def isFloat(self, str):
+        try:
+            float(str)
+            return True
+        except ValueError:
+            return False
 
-    def analyseLexems(self):
+    def analisaTokens(self, lista):
         tokens = TabelaSimbolos()
-        for i in self.__listaCodigo:
-            line = i
-            v = line.__str__().split(';')
-            for j in v:
-                l = j
-                if self.regexTest(l):
-                    if tokens.lexExists(l):
-                        self.__listTokens.append(l)
+        whiteSpace = ' '
+        lexema = ''
+        for l, linha in enumerate(self.__listaCodigo):
+            for c, char in enumerate(linha):
+                if self.__lexemas.search(char) is None:
+                    print('%s %.2d: \"%s\" %s \"%s\"' % ('Erro léxico na linha', l + 1, linha, '=> Lexema desconhecido:', char))
+                    sys.exit()
+                else:
+                    if tokens.isToken(char):
+                        lexema += char
+                        if c + 1 < len(linha):
+                            if tokens.isToken(lexema + linha[c + 1]):
+                                c += 1
+                                lexema += linha[c]
+                        lista.append(tokens.getSimbolo(lexema))
+                        lexema = ''
                     else:
-                        self.__listTokens.append(Token('id', l))
+                        if char is not whiteSpace:
+                            lexema += char
+                            if c + 1 < len(linha):
+                                if tokens.isToken((linha[c + 1])) or linha[c + 1] is whiteSpace:
+                                    if tokens.isToken(lexema):
+                                        lista.append(tokens.getSimbolo(lexema))
+                                        c += 1
+                                        lexema = ''
+                                    else:
+                                        if lexema.__str__().isnumeric() or self.isFloat(lexema):
+                                            lista.append(Token(lexema, 'number'))
+                                        else:
+                                            lista.append(Token(lexema, 'id'))
+                                        lexema = ''
 
-    def printTokens(self):
-        print(self.__listTokens)
+'''
+            for l in lista:
+                if ';' in l:
+                    txt = re.findall('.*?[;]', l)
+                    for t in txt:
+                        self.__listaCodigo.append(t.__str__().lstrip())
+                else:
+                    self.__listaCodigo.append(l)
+
+        regex = re.compile('[\{]|'
+                           '([a-zA-Z]+[\s]+(([a-zA-Z]+[\s]*[\;])|(([a-zA-Z]+[\s]+)*[\=]+[\s]+(([0-9]+([\.][0-9]+)*[\;]*)|'
+                           '([a-zA-Z]+[\s]*[\;])|(([a-zA-Z]+|[0-9]+([\.][0-9]+)*)[\s]*([\+]|[\-]|[\*]|[\/])[\s]*([a-zA-Z]+|[0-9]+([\.][0-9]+)*)[\;]*)))))|'
+                           '([a-zA-Z]+[\s]+[\(]+[\s](([a-zA-Z]+[\s][\)])|([a-zA-Z]+[\s]([<]|[>]|[>=]|[<=]|[!=]|[==])[\s]([a-zA-Z]+|[0-9]+)[\s][\)]))[\s]([\{]|[a-zA-Z]+[\;]*))|'
+                           '([a-zA-Z]+[\;]*)|'
+                           '[\}]')
+'''

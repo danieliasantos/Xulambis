@@ -6,7 +6,7 @@
     y = True;
     while ( y ) {
         i = i + j;
-        if ( i < j ){
+        if ( i < j ) {
             break;
         }
     }

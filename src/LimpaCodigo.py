@@ -11,7 +11,7 @@ class LimpaCodigo(object):
             self.__listaCodigo = lista
 
     # função de checagem da linha do arquivo, que imprime as linhas de código válidas (removendo comentários, quebras de linha e espaços vazios)
-    def treatList(self, newList):
+    def limpezaCodigo(self, newList):
         for i in self.__listaCodigo:
             linha = i
             if linha.__str__().__contains__("//"): #verifica se a linha contem comentarios

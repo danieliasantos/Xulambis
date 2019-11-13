@@ -10,7 +10,7 @@ class Arquivo(object):
         if nome is not None:
             self.__nome = nome
 
-    def loadToList(self, lista):
+    def carregaLista(self, lista):
         # função de carregamento do arquivo para lista
         with open(self.__nome, "r") as file:
             for line in file:
