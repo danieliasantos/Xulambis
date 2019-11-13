@@ -9,17 +9,16 @@ if platform.sys.platform.__contains__("win"):
 else:
     _system = False
 
-       
 if _system is True:
     from Arquivo import Arquivo
     from LimpaCodigo import LimpaCodigo
     from AnaliseLexica import AnaliseLexica
+    from AnaliseSintatica import AnaliseSintatica
 else:
     from src.Arquivo import Arquivo
     from src.LimpaCodigo import LimpaCodigo
     from src.AnaliseLexica import AnaliseLexica
-
-
+    from src.AnaliseSintatica import AnaliseSintatica
 
 arquivo = Arquivo("../tests/teste.xul") #cria objeto da classe Arquivo com o arquivo de teste desejado
 listaArquivo = [] #lista que vai receber o conteudo do arquivo
@@ -36,5 +35,7 @@ analiseLexica = AnaliseLexica(listaCodigo)
 listaTokens = []
 analiseLexica.analisaTokens(listaTokens)
 
-for idx, line in enumerate(listaTokens):
-    print('%.2d %s' % (idx, line.getToken()))
+#for idx, line in enumerate(listaTokens):
+#    print('%.2d %s' % (idx, line.getToken()))
+
+analiseSintatica = AnaliseSintatica(listaTokens)

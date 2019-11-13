@@ -35,7 +35,7 @@ class AnaliseLexica(object):
             for c, char in enumerate(linha):
                 if self.__lexemas.search(char) is None:
                     print('%s %.2d: \"%s\" %s \"%s\"' % ('Erro léxico na linha', l + 1, linha, '=> Lexema desconhecido:', char))
-                    sys.exit()
+                    break
                 else:
                     if tokens.isToken(char):
                         lexema += char
@@ -60,20 +60,23 @@ class AnaliseLexica(object):
                                         else:
                                             lista.append(Token(lexema, 'id'))
                                         lexema = ''
+            else:
+                continue #continua executando for interno se o  <if self.__lexemas.search(char) is None: for false
+            break #para a execução de todos os loops quando o <if self.__lexemas.search(char) is None:> for true
 
 '''
-            for l in lista:
-                if ';' in l:
-                    txt = re.findall('.*?[;]', l)
-                    for t in txt:
-                        self.__listaCodigo.append(t.__str__().lstrip())
-                else:
-                    self.__listaCodigo.append(l)
+for l in lista:
+    if ';' in l:
+        txt = re.findall('.*?[;]', l)
+        for t in txt:
+            self.__listaCodigo.append(t.__str__().lstrip())
+    else:
+        self.__listaCodigo.append(l)
 
-        regex = re.compile('[\{]|'
-                           '([a-zA-Z]+[\s]+(([a-zA-Z]+[\s]*[\;])|(([a-zA-Z]+[\s]+)*[\=]+[\s]+(([0-9]+([\.][0-9]+)*[\;]*)|'
-                           '([a-zA-Z]+[\s]*[\;])|(([a-zA-Z]+|[0-9]+([\.][0-9]+)*)[\s]*([\+]|[\-]|[\*]|[\/])[\s]*([a-zA-Z]+|[0-9]+([\.][0-9]+)*)[\;]*)))))|'
-                           '([a-zA-Z]+[\s]+[\(]+[\s](([a-zA-Z]+[\s][\)])|([a-zA-Z]+[\s]([<]|[>]|[>=]|[<=]|[!=]|[==])[\s]([a-zA-Z]+|[0-9]+)[\s][\)]))[\s]([\{]|[a-zA-Z]+[\;]*))|'
-                           '([a-zA-Z]+[\;]*)|'
-                           '[\}]')
+regex = re.compile('[\{]|'
+                   '([a-zA-Z]+[\s]+(([a-zA-Z]+[\s]*[\;])|(([a-zA-Z]+[\s]+)*[\=]+[\s]+(([0-9]+([\.][0-9]+)*[\;]*)|'
+                   '([a-zA-Z]+[\s]*[\;])|(([a-zA-Z]+|[0-9]+([\.][0-9]+)*)[\s]*([\+]|[\-]|[\*]|[\/])[\s]*([a-zA-Z]+|[0-9]+([\.][0-9]+)*)[\;]*)))))|'
+                   '([a-zA-Z]+[\s]+[\(]+[\s](([a-zA-Z]+[\s][\)])|([a-zA-Z]+[\s]([<]|[>]|[>=]|[<=]|[!=]|[==])[\s]([a-zA-Z]+|[0-9]+)[\s][\)]))[\s]([\{]|[a-zA-Z]+[\;]*))|'
+                   '([a-zA-Z]+[\;]*)|'
+                   '[\}]')
 '''
