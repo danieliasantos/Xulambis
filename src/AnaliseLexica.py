@@ -34,7 +34,7 @@ class AnaliseLexica(object):
         for l, linha in enumerate(self.__listaCodigo):
             for c, char in enumerate(linha):
                 if self.__lexemas.search(char) is None:
-                    print('%s %.2d: \"%s\" %s \"%s\"' % ('Erro léxico na linha', l + 1, linha, '=> Lexema desconhecido:', char))
+                    print('%s %.2d: \"%s\" %s \"%s\"' % ('Erro léxico na linha', l, linha, '=> Lexema desconhecido:', char))
                     break
                 else:
                     if tokens.isToken(char):
@@ -62,6 +62,8 @@ class AnaliseLexica(object):
                                         lexema = ''
             else:
                 continue #continua executando for interno se o  <if self.__lexemas.search(char) is None: for false
+            print('Programa finalizado.')
+            sys.exit()
             break #para a execução de todos os loops quando o <if self.__lexemas.search(char) is None:> for true
 
 '''

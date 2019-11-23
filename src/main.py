@@ -28,14 +28,16 @@ limpaCodigo = LimpaCodigo(listaArquivo) #cria objeto da classe LimpaCodigo com a
 listaCodigo = [] #lista que vai recber o conteudo do arquivo tratado
 limpaCodigo.limpezaCodigo(listaCodigo) #trata a lista antiga e carrega para uma nova lista
 
-#for idx, line in enumerate(listaCodigo):
-#    print('%.2d %s' % (idx, line))
+print('Processo de limpeza de codigo: \n')
+for idx, line in enumerate(listaCodigo):
+    print('%.2d %s' % (idx, line))
 
 analiseLexica = AnaliseLexica(listaCodigo)
 listaTokens = []
 analiseLexica.analisaTokens(listaTokens)
 
-#for idx, line in enumerate(listaTokens):
-#    print('%.2d %s' % (idx, line.getToken()))
+print('\nProcesso de analise lexica:\n')
+for idx, line in enumerate(listaTokens):
+    print('%.2d %s' % (idx, line.getToken()))
 
 analiseSintatica = AnaliseSintatica(listaTokens)
