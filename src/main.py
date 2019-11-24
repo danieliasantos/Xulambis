@@ -35,9 +35,13 @@ for idx, line in enumerate(listaCodigo):
 analiseLexica = AnaliseLexica(listaCodigo)
 listaTokens = []
 analiseLexica.analisaTokens(listaTokens)
-
+listaFinal = []
 print('\nProcesso de analise lexica:\n')
 for idx, line in enumerate(listaTokens):
     print('%.2d %s' % (idx, line.getToken()))
+   
+
+print("-----------############_--------------")
 
 analiseSintatica = AnaliseSintatica(listaTokens)
+analiseSintatica.analisys()
