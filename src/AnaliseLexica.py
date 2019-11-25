@@ -16,7 +16,7 @@ class AnaliseLexica(object):
     __listaCodigo = []
 
     def __init__(self, lista):
-        self.__lexemas = re.compile('[\w]|[\{]|[\}]|[\(]|[\)]|[\[]|[\]]|[\;]|[\=]|[\+]|[\-]|[\*]|[\/]|[\<]|[\>]|[\!]|[\&]|[\|]|[\.]|[\s]')
+        self.__lexemas = re.compile('[a-z]|[0-9]+|[\{]|[\}]|[\(]|[\)]|[\[]|[\]]|[\;]|[\=]|[\+]|[\-]|[\*]|[\/]|[\<]|[\>]|[\!]|[\&]|[\|]|[\.]|[\s]')
         if len(lista) > 0:
             self.__listaCodigo = lista
 
