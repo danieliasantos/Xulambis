@@ -4,10 +4,10 @@ import platform
 
 _system = None
 
-if platform.sys.platform.__contains__("win"):
-    _system = True
-else:
+if platform.sys.platform.__contains__("linux"):
     _system = False
+else:
+    _system = True
 
 if _system is True:
     from Arquivo import Arquivo

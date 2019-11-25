@@ -3,10 +3,10 @@
 
 import platform
 
-if platform.sys.platform.__contains__("win"):
-    from Token import Token
-else:
+if platform.sys.platform.__contains__("linux"):
     from src.Token import Token
+else:
+    from Token import Token
 
 class TabelaSimbolos(object):
 

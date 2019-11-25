@@ -4,12 +4,13 @@ import re
 import platform
 import sys
 
-if platform.sys.platform.__contains__("win"):
-    from TabelaSimbolos import TabelaSimbolos
-    from Token import Token
-else:
+if platform.sys.platform.__contains__("linux"):
     from src.TabelaSimbolos import TabelaSimbolos
     from src.Token import Token
+else:
+    from TabelaSimbolos import TabelaSimbolos
+    from Token import Token
+
 
 
 class AnaliseLexica(object):
