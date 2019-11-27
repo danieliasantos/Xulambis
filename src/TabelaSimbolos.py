@@ -40,7 +40,7 @@ class TabelaSimbolos(object):
         "<=": Token('<=', '<='),
         "!=": Token('!=', '!='),
         "==": Token('==', '=='),
-        "&&": Token('&&', "&&"),
+        "&&": Token('&&', '&&'),
         "||": Token('||', '||'),
         "!": Token('!', '!')
     }
