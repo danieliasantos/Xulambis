@@ -12,12 +12,12 @@ else:
     from Token import Token
 
 
-
 class AnaliseLexica(object):
     __listaCodigo = []
 
     def __init__(self, lista):
-        self.__lexemas = re.compile('[a-z]|[0-9]+|[\{]|[\}]|[\(]|[\)]|[\[]|[\]]|[\;]|[\=]|[\+]|[\-]|[\*]|[\/]|[\<]|[\>]|[\!]|[\&]|[\|]|[\.]|[\s]')
+        self.__lexemas = re.compile(
+            '[a-z]|[0-9]+|[\{]|[\}]|[\(]|[\)]|[\[]|[\]]|[\;]|[\=]|[\+]|[\-]|[\*]|[\/]|[\<]|[\>]|[\!]|[\&]|[\|]|[\.]|[\s]')
         if len(lista) > 0:
             self.__listaCodigo = lista
 
@@ -38,16 +38,15 @@ class AnaliseLexica(object):
                     print('%s %.2d: \"%s\" %s \"%s\"' % ('Erro léxico na linha', l, linha, '=> Lexema desconhecido:', char))
                     break
                 else:
-                    if tokens.isToken(char):
-                        lexema += char
-                        if c + 1 < len(linha):
-                            if tokens.isToken(lexema + linha[c + 1]):
-                                c += 1
-                                lexema += linha[c]
-                        lista.append(tokens.getSimbolo(lexema))
-                        lexema = ''
-                    else:
-                        if char is not whiteSpace:
+                    if char is not whiteSpace:
+                        if tokens.isToken(char):
+                            if c + 1 < len(linha) and tokens.isToken(char + linha[c + 1]):
+                                lexema += char
+                                continue
+                            lexema += char
+                            lista.append(tokens.getSimbolo(lexema))
+                            lexema = ''
+                        else:
                             lexema += char
                             if c + 1 < len(linha):
                                 if tokens.isToken((linha[c + 1])) or linha[c + 1] is whiteSpace:
@@ -62,10 +61,11 @@ class AnaliseLexica(object):
                                             lista.append(Token(lexema, 'id'))
                                         lexema = ''
             else:
-                continue #continua executando for interno se o  <if self.__lexemas.search(char) is None: for false
+                continue  # continua executando for interno se o  <if self.__lexemas.search(char) is None: for false
             print('Programa finalizado.')
             sys.exit()
-            break #para a execução de todos os loops quando o <if self.__lexemas.search(char) is None:> for true
+            break  # para a execução de todos os loops quando o <if self.__lexemas.search(char) is None:> for true
+
 
 '''
 for l in lista:

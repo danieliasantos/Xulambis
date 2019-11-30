@@ -8,9 +8,9 @@
 
      y = true; 
      while ( y ) {
-
            i = i + j;
-           if ( i || 8 ) { i = 8; }
-
+           if ( i != y ) {
+                i = 8;
+           }
      }
 }
