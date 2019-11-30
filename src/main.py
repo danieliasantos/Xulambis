@@ -14,11 +14,13 @@ if _system is True:
     from LimpaCodigo import LimpaCodigo
     from AnaliseLexica import AnaliseLexica
     from AnaliseSintatica import AnaliseSintatica
+    from AnaliseSemantica import AnaliseSemantica
 else:
     from src.Arquivo import Arquivo
     from src.LimpaCodigo import LimpaCodigo
     from src.AnaliseLexica import AnaliseLexica
     from src.AnaliseSintatica import AnaliseSintatica
+    from src.AnaliseSemantica import AnaliseSemantica
 
 arquivo = Arquivo("../tests/teste.xul") #cria objeto da classe Arquivo com o arquivo de teste desejado
 listaArquivo = [] #lista que vai receber o conteudo do arquivo
@@ -34,16 +36,19 @@ for idx, line in enumerate(listaCodigo):
     print('%.2d %s' % (idx, line))
 '''
 
+print('\nProcesso de analise lexica:')
 analiseLexica = AnaliseLexica(listaCodigo)
 listaTokens = []
 analiseLexica.analisaTokens(listaTokens)
-
-
-print('\nProcesso de analise lexica:\n')
+'''
 for idx, line in enumerate(listaTokens):
     print(line.getToken(), idx)
     #print('%.2d %s' % (idx, line.getToken()))
-
-print('\nProcesso de analise sintatica:\n')
+'''
+print('\nProcesso de analise sintatica:')
 analiseSintatica = AnaliseSintatica(listaTokens)
+analiseSintatica.analisaTokens()
+
+print('\nProcesso de analise semantica:')
+analiseSemantica = AnaliseSemantica(listaTokens)
 analiseSintatica.analisaTokens()

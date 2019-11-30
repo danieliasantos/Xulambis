@@ -23,7 +23,7 @@ class AnaliseSintatica(object):
 
     def __S(self, i):
         tipo = self.__listaTokens[i].getTipo()
-        print(self.__listaTokens[i].getToken())
+        #print(self.__listaTokens[i].getToken())
         if tipo == '{':
             return True and self.__A(i + 1)
         print('Erro regra S:\n    Token analisado:', self.__listaTokens[i].getToken(), '\n    Tipo esperado: {\n    Encontrado:', tipo)
@@ -31,7 +31,7 @@ class AnaliseSintatica(object):
 
     def __A(self, i):
         tipo = self.__listaTokens[i].getTipo()
-        print(self.__listaTokens[i].getToken())
+        #print(self.__listaTokens[i].getToken())
         if tipo == 'int' or tipo == 'double' or tipo == 'float' or tipo == 'bool' or tipo == 'string':
             return True and self.__C(i + 1)
         if tipo == 'id':
@@ -45,7 +45,7 @@ class AnaliseSintatica(object):
 
     def __B(self, i):
         tipo = self.__listaTokens[i].getTipo()
-        print(self.__listaTokens[i].getToken())
+        #print(self.__listaTokens[i].getToken())
         if tipo == '}' and i == len(self.__listaTokens) - 1:
             return True
         elif tipo == '}':
@@ -56,7 +56,7 @@ class AnaliseSintatica(object):
 
     def __C(self, i):
         tipo = self.__listaTokens[i].getTipo()
-        print(self.__listaTokens[i].getToken())
+        #print(self.__listaTokens[i].getToken())
         if tipo == 'id':
             return True and self.__E(i + 1)
         print('Erro regra C:\n    Token analisado:', self.__listaTokens[i].getToken(), '\n    Tipo esperado: id\n    Encontrado:', tipo)
@@ -64,7 +64,7 @@ class AnaliseSintatica(object):
 
     def __D(self, i):
         tipo = self.__listaTokens[i].getTipo()
-        print(self.__listaTokens[i].getToken())
+        #print(self.__listaTokens[i].getToken())
         if tipo == ';':
             return True and self.__A(i + 1)
         print('Erro regra D:\n    Token analisado:', self.__listaTokens[i].getToken(), '\n    Tipo esperado: ;\n    Encontrado:', tipo)
@@ -72,7 +72,7 @@ class AnaliseSintatica(object):
 
     def __E(self, i):
         tipo = self.__listaTokens[i].getTipo()
-        print(self.__listaTokens[i].getToken())
+        #print(self.__listaTokens[i].getToken())
         if tipo == '=':
             return True and self.__G(i + 1)
         if tipo == ';':
@@ -82,7 +82,7 @@ class AnaliseSintatica(object):
 
     def __F(self, i):
         tipo = self.__listaTokens[i].getTipo()
-        print(self.__listaTokens[i].getToken())
+        #print(self.__listaTokens[i].getToken())
         if tipo == ')':
             return True and self.__L(i + 1)
         print('Erro regra F:\n    Token analisado:', self.__listaTokens[i].getToken(), '\n    Tipo esperado: )\n    Encontrado:', tipo)
@@ -90,7 +90,7 @@ class AnaliseSintatica(object):
 
     def __G(self, i):
         tipo = self.__listaTokens[i].getTipo()
-        print(self.__listaTokens[i].getToken())
+        #print(self.__listaTokens[i].getToken())
         if tipo == 'number' or tipo == 'id' or tipo == 'false' or tipo == 'true':
             return True and self.__H(i + 1)
         print('Erro regra G:\n    Token analisado:', self.__listaTokens[i].getToken(), '\n    Tipo esperado: number, id, true ou false\n    Encontrado:', tipo)
@@ -98,7 +98,7 @@ class AnaliseSintatica(object):
 
     def __H(self, i):
         tipo = self.__listaTokens[i].getTipo()
-        print(self.__listaTokens[i].getToken())
+        #print(self.__listaTokens[i].getToken())
         if tipo == ';':
             return True and self.__A(i + 1)
         if tipo == '/' or tipo == '-' or tipo == '*' or tipo == '+':
@@ -108,7 +108,7 @@ class AnaliseSintatica(object):
 
     def __I(self, i):
         tipo = self.__listaTokens[i].getTipo()
-        print(self.__listaTokens[i].getToken())
+        #print(self.__listaTokens[i].getToken())
         if tipo == '(':
             return True and self.__J(i + 1)
         print('Erro regra I:\n    Token analisado:', self.__listaTokens[i].getToken(), '\n    Tipo esperado: (\n    Encontrado:', tipo)
@@ -116,7 +116,7 @@ class AnaliseSintatica(object):
 
     def __J(self, i):
         tipo = self.__listaTokens[i].getTipo()
-        print(self.__listaTokens[i].getToken())
+        #print(self.__listaTokens[i].getToken())
         if tipo == 'id':
             return True and self.__M(i + 1)
         if tipo == 'true':
@@ -126,7 +126,7 @@ class AnaliseSintatica(object):
 
     def __K(self, i):
         tipo = self.__listaTokens[i].getTipo()
-        print(self.__listaTokens[i].getToken())
+        #print(self.__listaTokens[i].getToken())
         if tipo == 'id' or tipo == 'number':
             return True and self.__F(i + 1)
         print('Erro regra K:\n    Token analisado:', self.__listaTokens[i].getToken(), '\n    Tipo esperado: id\n    Encontrado:', tipo)
@@ -134,7 +134,7 @@ class AnaliseSintatica(object):
 
     def __L(self, i):
         tipo = self.__listaTokens[i].getTipo()
-        print(self.__listaTokens[i].getToken())
+        #print(self.__listaTokens[i].getToken())
         if tipo == 'break':
             return True and self.__D(i + 1)
         if tipo == '{':
@@ -144,7 +144,7 @@ class AnaliseSintatica(object):
 
     def __M(self, i):
         tipo = self.__listaTokens[i].getTipo()
-        print(self.__listaTokens[i].getToken())
+        #print(self.__listaTokens[i].getToken())
         if tipo == ')':
             return True and self.__L(i + 1)
         if tipo == "||" or tipo == "==" or tipo == "&&" or tipo == ">" or tipo == ">=" or tipo == "<" or tipo == "<=" or tipo == "!=" or tipo == "!":
@@ -155,9 +155,9 @@ class AnaliseSintatica(object):
     def analisaTokens(self):
         i = 0 # controle da posicao no vetor listaTokens
         if self.__S(i):
-            print('Analise sintatica finalizada sem erro.')
+            print('Analise Sintatica finalizada sem erro.')
         else:
-            print('Analise sintatica finalizada com erro.')
+            print('Analise Sintatica finalizada com erro. Programa finalizado')
 
 '''
    def __consome(self, t):

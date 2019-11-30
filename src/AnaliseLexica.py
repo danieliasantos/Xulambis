@@ -62,9 +62,10 @@ class AnaliseLexica(object):
                                         lexema = ''
             else:
                 continue  # continua executando for interno se o  <if self.__lexemas.search(char) is None: for false
-            print('Programa finalizado.')
+            print('Analise Lexica finalizada com erro. Programa finalizado')
             sys.exit()
-            break  # para a execução de todos os loops quando o <if self.__lexemas.search(char) is None:> for true
+            #break  # para a execução de todos os loops quando o <if self.__lexemas.search(char) is None:> for true
+        print('Analise Lexica finalizada sem erro.')
 
 
 '''
